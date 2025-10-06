@@ -108,6 +108,18 @@ export default {
             boxShadow: "0 0 40px hsl(var(--cream) / 0.7), 0 0 80px hsl(var(--cream) / 0.4), 0 0 120px hsl(var(--cream) / 0.2), inset 0 0 25px hsl(var(--cream) / 0.25)" 
           },
         },
+        "subtle-pulse": {
+          "0%, 100%": { 
+            opacity: "0.9", 
+            transform: "scale(1)",
+            boxShadow: "0 0 15px hsl(var(--cream) / 0.2), 0 0 30px hsl(var(--cream) / 0.1)"
+          },
+          "50%": { 
+            opacity: "1", 
+            transform: "scale(1.03)",
+            boxShadow: "0 0 20px hsl(var(--cream) / 0.25), 0 0 40px hsl(var(--cream) / 0.12)"
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -119,6 +131,7 @@ export default {
         "shimmer": "shimmer 4s ease-in-out infinite",
         "electric": "electric 2s ease-in-out infinite",
         "electric-enhanced": "electric-enhanced 2.5s ease-in-out infinite",
+        "subtle-pulse": "subtle-pulse 3s ease-in-out infinite",
       },
     },
   },
