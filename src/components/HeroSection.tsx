@@ -18,15 +18,15 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="min-h-screen flex flex-col items-center justify-center text-center">
           {/* Main Quote - Staggered Animation */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="mb-12"
+            className="mb-8 md:mb-12 max-w-5xl mx-auto"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight px-4">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-                className="block text-gradient mt-4"
+                className="block text-gradient mt-3 md:mt-4"
               >
                 busco emociones.
               </motion.span>
@@ -49,7 +49,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-              className="text-2xl md:text-3xl text-muted-foreground mb-16 tracking-wide font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-10 md:mb-16 tracking-wide font-light px-4"
             >
               Cada toma tiene una intención.
             </motion.p>

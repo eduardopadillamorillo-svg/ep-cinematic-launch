@@ -30,6 +30,7 @@ const Footer = () => {
           <div className="flex items-center gap-6">
             {[
               { name: "Inicio", id: "hero" },
+              { name: "Planes", id: "pricing" },
               { name: "Contacto", id: "contact" },
             ].map((link) => (
               <button

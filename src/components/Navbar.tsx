@@ -37,11 +37,19 @@ const Navbar = () => {
             EP
           </motion.button>
 
-          <div className="flex items-center gap-8">
-            {["Inicio", "Visión", "Contacto"].map((item, index) => (
+          <div className="hidden md:flex items-center gap-8">
+            {["Inicio", "Visión", "Planes", "Contacto"].map((item, index) => (
               <motion.button
                 key={item}
-                onClick={() => scrollToSection(item === "Inicio" ? "hero" : item === "Visión" ? "about" : "contact")}
+                onClick={() => {
+                  const sectionMap: { [key: string]: string } = {
+                    "Inicio": "hero",
+                    "Visión": "about",
+                    "Planes": "pricing",
+                    "Contacto": "contact"
+                  };
+                  scrollToSection(sectionMap[item]);
+                }}
                 className="text-sm uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors duration-300"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
