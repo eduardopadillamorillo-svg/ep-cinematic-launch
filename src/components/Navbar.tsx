@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import logo from "@/assets/ep-filmmaker-logo.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -31,15 +30,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <motion.button
             onClick={() => scrollToSection("hero")}
-            className="focus:outline-none"
+            className="text-2xl font-bold tracking-wider text-primary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img 
-              src={logo} 
-              alt="EP Filmmaker Logo" 
-              className="h-8 md:h-10 w-auto object-contain"
-            />
+            EP
           </motion.button>
 
           <div className="hidden md:flex items-center gap-8">
