@@ -131,7 +131,7 @@ export default {
         "shimmer": "shimmer 4s ease-in-out infinite",
         "electric": "electric 2s ease-in-out infinite",
         "electric-enhanced": "electric-enhanced 2.5s ease-in-out infinite",
-        "subtle-pulse": "subtle-pulse 4.5s ease-in-out infinite",
+        "subtle-pulse": "subtle-pulse 7.2s ease-in-out infinite",
       },
     },
   },
