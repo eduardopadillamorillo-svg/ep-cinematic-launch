@@ -25,7 +25,7 @@ const FloatingSocial = () => {
       <Button
         onClick={handleWhatsApp}
         size="icon"
-        className="w-12 h-12 md:w-14 md:h-14 rounded-full glass border-2 border-primary/30 hover:border-primary/40 hover:scale-105 transition-all duration-500 animate-subtle-pulse"
+        className="w-12 h-12 md:w-14 md:h-14 rounded-full glass border-2 border-primary/30 hover:border-primary/40 hover:scale-105 transition-all duration-500"
       >
         <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-primary" />
       </Button>

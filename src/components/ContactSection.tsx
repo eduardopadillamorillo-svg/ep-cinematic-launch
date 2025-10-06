@@ -44,7 +44,7 @@ const ContactSection = () => {
             <Button
               onClick={handleWhatsApp}
               size="lg"
-              className="relative px-12 py-6 text-lg font-semibold bg-card/80 text-primary border-2 border-primary/30 hover:border-primary/40 hover:bg-card backdrop-blur-sm transition-all duration-500 animate-subtle-pulse uppercase tracking-widest"
+              className="relative px-12 py-6 text-lg font-semibold bg-card/80 text-primary border-2 border-primary/30 hover:border-primary/40 hover:bg-card backdrop-blur-sm transition-all duration-500 uppercase tracking-widest"
             >
               WhatsApp
             </Button>
