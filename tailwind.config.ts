@@ -110,14 +110,14 @@ export default {
         },
         "subtle-pulse": {
           "0%, 100%": { 
-            opacity: "0.9", 
+            opacity: "0.95", 
             transform: "scale(1)",
-            boxShadow: "0 0 15px hsl(var(--cream) / 0.2), 0 0 30px hsl(var(--cream) / 0.1)"
+            boxShadow: "0 0 8px hsl(var(--cream) / 0.12), 0 0 16px hsl(var(--cream) / 0.06)"
           },
           "50%": { 
             opacity: "1", 
-            transform: "scale(1.03)",
-            boxShadow: "0 0 20px hsl(var(--cream) / 0.25), 0 0 40px hsl(var(--cream) / 0.12)"
+            transform: "scale(1.01)",
+            boxShadow: "0 0 12px hsl(var(--cream) / 0.15), 0 0 24px hsl(var(--cream) / 0.08)"
           },
         },
       },
@@ -131,7 +131,7 @@ export default {
         "shimmer": "shimmer 4s ease-in-out infinite",
         "electric": "electric 2s ease-in-out infinite",
         "electric-enhanced": "electric-enhanced 2.5s ease-in-out infinite",
-        "subtle-pulse": "subtle-pulse 3s ease-in-out infinite",
+        "subtle-pulse": "subtle-pulse 4.5s ease-in-out infinite",
       },
     },
   },
