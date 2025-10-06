@@ -38,14 +38,13 @@ const Navbar = () => {
           </motion.button>
 
           <div className="hidden md:flex items-center gap-8">
-            {["Inicio", "Visión", "Planes", "Contacto"].map((item, index) => (
+            {["Inicio", "Visión", "Contacto"].map((item, index) => (
               <motion.button
                 key={item}
                 onClick={() => {
                   const sectionMap: { [key: string]: string } = {
                     "Inicio": "hero",
                     "Visión": "about",
-                    "Planes": "pricing",
                     "Contacto": "contact"
                   };
                   scrollToSection(sectionMap[item]);
