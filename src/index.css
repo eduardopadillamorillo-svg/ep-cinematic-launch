@@ -111,4 +111,19 @@ All colors MUST be HSL.
   .glow-text {
     text-shadow: 0 0 20px hsl(var(--cream) / 0.3);
   }
+
+  /* Shimmer Text Effect */
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--cream)) 50%,
+      hsl(var(--primary)) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s ease-in-out infinite;
+  }
 }

@@ -26,46 +26,45 @@ const HeroSection = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="mb-12"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="block text-primary glow-text"
+                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+                className="block text-primary glow-text shimmer-text"
               >
-                No busco grabar,
+                No busco planos,
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
                 className="block text-gradient mt-4"
               >
-                busco que se sienta.
+                busco emociones.
               </motion.span>
             </h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
+              className="text-2xl md:text-3xl text-muted-foreground mb-16 tracking-wide font-light"
+            >
+              Cada toma tiene una intención.
+            </motion.p>
           </motion.div>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-16 tracking-wide"
-          >
-            Pronto lo vas a entender.
-          </motion.p>
 
           {/* CTA Button with Electric Effect */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
+            transition={{ duration: 1, delay: 1.6, ease: "easeOut" }}
           >
             <Button
               onClick={handleWhatsApp}
               size="lg"
-              className="relative px-12 py-6 text-lg font-semibold bg-card/80 text-primary border-2 border-primary/30 hover:border-primary/60 hover:bg-card backdrop-blur-sm transition-all duration-300 animate-electric uppercase tracking-widest"
+              className="relative px-12 py-6 text-lg font-semibold bg-card/80 text-primary border-2 border-primary/40 hover:border-primary/70 hover:bg-card backdrop-blur-sm transition-all duration-500 animate-electric-enhanced uppercase tracking-widest"
             >
               Hablemos por WhatsApp
             </Button>
@@ -75,12 +74,12 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 2 }}
+            transition={{ duration: 1, delay: 2.2 }}
             className="absolute bottom-12 left-1/2 -translate-x-1/2"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center pt-2"
             >
               <div className="w-1 h-3 bg-primary rounded-full" />

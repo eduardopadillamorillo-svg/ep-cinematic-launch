@@ -100,6 +100,14 @@ export default {
             boxShadow: "0 0 30px hsl(var(--cream) / 0.6), 0 0 60px hsl(var(--cream) / 0.3), inset 0 0 20px hsl(var(--cream) / 0.2)" 
           },
         },
+        "electric-enhanced": {
+          "0%, 100%": { 
+            boxShadow: "0 0 25px hsl(var(--cream) / 0.5), 0 0 50px hsl(var(--cream) / 0.25), 0 0 75px hsl(var(--cream) / 0.1), inset 0 0 15px hsl(var(--cream) / 0.15)" 
+          },
+          "50%": { 
+            boxShadow: "0 0 40px hsl(var(--cream) / 0.7), 0 0 80px hsl(var(--cream) / 0.4), 0 0 120px hsl(var(--cream) / 0.2), inset 0 0 25px hsl(var(--cream) / 0.25)" 
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -108,8 +116,9 @@ export default {
         "fade-in-slow": "fade-in-slow 1.2s ease-out",
         "slide-up": "slide-up 0.6s ease-out",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
-        "shimmer": "shimmer 3s linear infinite",
+        "shimmer": "shimmer 4s ease-in-out infinite",
         "electric": "electric 2s ease-in-out infinite",
+        "electric-enhanced": "electric-enhanced 2.5s ease-in-out infinite",
       },
     },
   },
