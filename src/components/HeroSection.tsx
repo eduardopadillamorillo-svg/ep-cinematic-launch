@@ -10,12 +10,32 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden film-grain">
-      {/* Aurora Background Effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source 
+          src="https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/Hero/19%20WEB.mp4" 
+          type="video/mp4" 
+        />
+      </video>
+
+      {/* Dark Overlay for text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-[1]" />
       
-      {/* Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]" />
+      {/* Vignette Effect */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 z-[1]" />
+
+      {/* Film Grain */}
+      <div className="absolute inset-0 film-grain z-[2]" />
+      
+      {/* Subtle Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[120px] z-[2]" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="min-h-screen flex flex-col items-start justify-end pb-20 pl-6 md:pb-24 md:pl-12 lg:pl-16">
