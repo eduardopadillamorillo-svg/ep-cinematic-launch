@@ -70,6 +70,7 @@ const VideoCard = ({ video, index, isInView }: VideoCardProps) => {
             preload="metadata"
             muted
             playsInline
+            crossOrigin="anonymous"
             className={`w-full h-full object-cover transition-opacity duration-300 ${
               isLoaded ? "opacity-100" : "opacity-0"
             }`}

@@ -61,6 +61,7 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: VideoModalProps) => {
                   ref={videoRef}
                   controls
                   playsInline
+                  crossOrigin="anonymous"
                   className="max-w-full max-h-full rounded-lg shadow-2xl"
                   style={{
                     boxShadow: "0 0 60px hsl(var(--primary) / 0.4)",
