@@ -28,7 +28,7 @@ const Footer = () => {
           
           {/* Powered by */}
           <p className="text-sm text-muted-foreground text-center">
-            Impulsado por{" "}
+            Powered by{" "}
             <a
               href="https://www.solware.agency/"
               target="_blank"

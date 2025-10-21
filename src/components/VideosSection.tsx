@@ -5,7 +5,7 @@ import VideoCard from "./VideoCard";
 const videos = [
   {
     id: "1",
-    videoUrl: "https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/WEB/Thumbnail/15%20WEB.mp4",
+    videoUrl: "https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/WEB/15%20WEB%20(1).mp4",
     aspectRatio: "16:9" as const,
   },
   {

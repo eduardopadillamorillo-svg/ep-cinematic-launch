@@ -40,7 +40,7 @@ const HeroSection = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="mb-12"
           >
-            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight text-left">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-left" style={{ lineHeight: '0.85' }}>
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
