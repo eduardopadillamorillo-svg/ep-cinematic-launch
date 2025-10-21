@@ -1,7 +1,25 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useRef, useState, useEffect } from "react";
 
 const HeroSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const playVideo = async () => {
+      if (videoRef.current) {
+        try {
+          await videoRef.current.play();
+          setVideoLoaded(true);
+        } catch (error) {
+          console.error("Video autoplay failed:", error);
+        }
+      }
+    };
+    playVideo();
+  }, []);
+
   const handleWhatsApp = () => {
     window.open(
       "https://wa.me/584122499554?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20hablar%20sobre%20una%20producci%C3%B3n.",
@@ -13,17 +31,27 @@ const HeroSection = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        preload="auto"
+        onLoadedData={() => setVideoLoaded(true)}
+        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
+          videoLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
       >
         <source 
           src="https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/Hero/19%20WEB.mp4" 
           type="video/mp4" 
         />
       </video>
+
+      {/* Fallback mientras carga el video */}
+      {!videoLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0 animate-pulse" />
+      )}
 
       {/* Dark Overlay for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-[1]" />
