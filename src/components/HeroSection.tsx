@@ -40,7 +40,7 @@ const HeroSection = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="mb-12"
           >
-            <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-left" style={{ lineHeight: '0.85' }}>
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-left [line-height:0.65] lg:[line-height:0.85]">
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -53,7 +53,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-                className="block text-gradient mt-4"
+                className="block text-gradient mt-1 lg:mt-4"
               >
                 busco emociones.
               </motion.span>
@@ -63,7 +63,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-              className="text-xl lg:text-2xl text-muted-foreground mb-10 tracking-wide font-light text-left"
+              className="text-lg lg:text-2xl text-muted-foreground mb-10 tracking-wide font-light text-left"
             >
               Cada toma tiene una intención.
             </motion.p>
