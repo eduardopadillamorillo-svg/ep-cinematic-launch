@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useVideoPlayer } from "@/hooks/useVideoPlayer";
-import { useState } from "react";
 
 const HeroSection = () => {
-  const { videoRef, isLoaded } = useVideoPlayer(true);
-  const [hasError, setHasError] = useState(false);
-
   const handleWhatsApp = () => {
     window.open(
       "https://wa.me/584122499554?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20hablar%20sobre%20una%20producci%C3%B3n.",
@@ -14,49 +9,23 @@ const HeroSection = () => {
     );
   };
 
-  const handleVideoError = () => {
-    console.error("Video failed to load");
-    setHasError(true);
-  };
-
-  const handleVideoLoaded = () => {
-    console.log("Video loaded successfully");
-    setHasError(false);
-  };
-
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       
-      {/* Video Background con manejo de errores */}
-      {!hasError && (
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          onLoadedData={handleVideoLoaded}
-          onError={handleVideoError}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{ zIndex: 0 }}
-        >
-          <source 
-            src="https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/Hero/19%20WEB.mp4" 
-            type="video/mp4" 
-          />
-        </video>
-      )}
-
-      {/* Fallback gradient cuando el video no carga o está cargando */}
-      {(!isLoaded || hasError) && (
-        <div 
-          className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"
-          style={{ zIndex: 0 }}
+      {/* Video Background - ULTRA SIMPLE */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+      >
+        <source 
+          src="https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/Hero/19%20WEB.mp4" 
+          type="video/mp4" 
         />
-      )}
+      </video>
 
       {/* Overlay oscuro simple */}
       <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }} />
