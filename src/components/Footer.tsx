@@ -25,6 +25,19 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground text-center">
             © 2025 EP Filmmaker | Una experiencia visual creada por Eduardo Padilla.
           </p>
+          
+          {/* Powered by */}
+          <p className="text-sm text-muted-foreground text-center">
+            Impulsado por{" "}
+            <a
+              href="https://www.solware.agency/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors duration-300 font-medium"
+            >
+              Solware
+            </a>
+          </p>
 
           {/* Links */}
           <div className="flex items-center gap-6">
