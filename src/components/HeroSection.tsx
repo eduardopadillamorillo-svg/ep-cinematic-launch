@@ -22,7 +22,7 @@ const HeroSection = () => {
         style={{ zIndex: 0 }}
       >
         <source 
-          src="/videos/hero.mp4" 
+          src="https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/Hero/19%20WEB.mp4?download" 
           type="video/mp4" 
         />
       </video>
