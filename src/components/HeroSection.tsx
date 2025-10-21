@@ -22,6 +22,7 @@ const HeroSection = () => {
         muted
         playsInline
         preload="auto"
+        crossOrigin="anonymous"
         className="absolute inset-0 w-full h-full object-cover z-[1] opacity-100"
       >
         <source 
