@@ -19,14 +19,14 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: VideoModalProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
+    const video = videoRef.current;
+    if (!video) return;
 
     if (isOpen) {
-      videoElement.play();
+      video.play().catch(() => {});
     } else {
-      videoElement.pause();
-      videoElement.currentTime = 0;
+      video.pause();
+      video.currentTime = 0;
     }
   }, [isOpen]);
 

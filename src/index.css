@@ -83,18 +83,6 @@ All colors MUST be HSL.
     -ms-overflow-style: none;
   }
 
-  /* Chrome, Safari, Opera, Edge */
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
-  body {
-    /* Firefox */
-    scrollbar-width: none;
-    /* IE and Edge */
-    -ms-overflow-style: none;
-  }
 }
 
 @layer utilities {

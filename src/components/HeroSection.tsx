@@ -1,66 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { useVideoPlayer } from "@/hooks/useVideoPlayer";
 
 const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [showPlayButton, setShowPlayButton] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    let attempts = 0;
-    const maxAttempts = 5;
-    const retryDelay = 500;
-
-    const tryPlay = async () => {
-      try {
-        await video.play();
-        setVideoLoaded(true);
-        setShowPlayButton(false);
-        return true;
-      } catch (error) {
-        return false;
-      }
-    };
-
-    const retryPlay = async () => {
-      while (attempts < maxAttempts) {
-        const success = await tryPlay();
-        if (success) return;
-        
-        attempts++;
-        await new Promise(resolve => setTimeout(resolve, retryDelay));
-      }
-    };
-
-    retryPlay();
-
-    const handleFirstInteraction = () => {
-      tryPlay();
-    };
-
-    document.addEventListener("click", handleFirstInteraction, { once: true });
-    document.addEventListener("touchstart", handleFirstInteraction, { once: true });
-
-    return () => {
-      document.removeEventListener("click", handleFirstInteraction);
-      document.removeEventListener("touchstart", handleFirstInteraction);
-    };
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!videoLoaded && videoRef.current?.paused) {
-        setShowPlayButton(true);
-      }
-    }, 3000);
-    
-    return () => clearTimeout(timer);
-  }, [videoLoaded]);
+  const { videoRef, isLoaded } = useVideoPlayer(true);
 
   const handleWhatsApp = () => {
     window.open(
@@ -79,13 +22,8 @@ const HeroSection = () => {
         muted
         playsInline
         preload="auto"
-        crossOrigin="anonymous"
-        onLoadedData={() => setVideoLoaded(true)}
-        onCanPlay={() => {
-          videoRef.current?.play().catch(() => {});
-        }}
         className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
-          videoLoaded ? 'opacity-100' : 'opacity-0'
+          isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <source 
@@ -94,27 +32,9 @@ const HeroSection = () => {
         />
       </video>
 
-      {/* Manual Play Button Fallback */}
-      {showPlayButton && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          onClick={() => {
-            videoRef.current?.play().then(() => {
-              setShowPlayButton(false);
-              setVideoLoaded(true);
-            });
-          }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-primary/90 hover:bg-primary text-background p-6 rounded-full backdrop-blur-sm border-2 border-white/20 transition-all duration-300 shadow-2xl"
-          aria-label="Reproducir video"
-        >
-          <Play className="w-12 h-12" fill="currentColor" />
-        </motion.button>
-      )}
-
       {/* Fallback mientras carga el video */}
-      {!videoLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0 animate-pulse" />
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0" />
       )}
 
       {/* Dark Overlay for text legibility */}
