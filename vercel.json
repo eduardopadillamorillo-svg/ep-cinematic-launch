@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.vercel-insights.com https://va.vercel-scripts.com; connect-src 'self' https://vitals.vercel-insights.com https://lxyueinuklyestlpuhoo.supabase.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https://lxyueinuklyestlpuhoo.supabase.co; font-src 'self'; object-src 'none';"
+        }
+      ]
+    }
+  ]
+}
