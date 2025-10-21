@@ -37,16 +37,16 @@ const HeroSection = () => {
       {/* Subtle Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[120px] z-[2]" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="min-h-screen flex flex-col items-start justify-end pb-20 pl-6 md:pb-24 md:pl-12 lg:pl-16">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="min-h-screen flex flex-col items-start justify-end pb-16 pl-4 sm:pb-20 sm:pl-6 md:pb-24 md:pl-12 lg:pl-16">
           {/* Main Quote - Staggered Animation */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="mb-8 md:mb-12"
+            className="mb-6 md:mb-8 lg:mb-12"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight text-left">
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -59,7 +59,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-                className="block text-gradient mt-3 md:mt-4"
+                className="block text-gradient mt-2 sm:mt-3 md:mt-4"
               >
                 busco emociones.
               </motion.span>
@@ -69,7 +69,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-              className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 md:mb-10 tracking-wide font-light text-left"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 tracking-wide font-light text-left"
             >
               Cada toma tiene una intención.
             </motion.p>
@@ -80,11 +80,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 1.6, ease: "easeOut" }}
+            className="w-full sm:w-auto"
           >
             <Button
               onClick={handleWhatsApp}
               size="lg"
-              className="relative px-12 py-6 text-lg font-semibold bg-card/80 text-primary border-2 border-primary/40 hover:border-primary/50 hover:bg-card backdrop-blur-sm transition-all duration-500 uppercase tracking-widest"
+              className="relative w-full sm:w-auto px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-5 lg:px-12 lg:py-6 text-sm sm:text-base md:text-lg font-semibold bg-card/80 text-primary border-2 border-primary/40 hover:border-primary/50 hover:bg-card backdrop-blur-sm transition-all duration-500 uppercase tracking-wide sm:tracking-widest"
             >
               Hablemos por WhatsApp
             </Button>
@@ -95,7 +96,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 2.2 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2"
+            className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
