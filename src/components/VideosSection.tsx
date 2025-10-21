@@ -41,7 +41,7 @@ const VideosSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 glow-text">
-            Mi Trabajo
+            Proyectos
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Experiencias cinematográficas que cuentan historias
