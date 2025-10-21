@@ -5,6 +5,8 @@ import {
   Dialog,
   DialogContent,
   DialogClose,
+  DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 
 interface VideoModalProps {
@@ -50,6 +52,12 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: VideoModalProps) => {
               onDragEnd={handleDragEnd}
               className="relative w-full h-full flex items-center justify-center"
             >
+              {/* Accessibility */}
+              <DialogTitle className="sr-only">Reproductor de Video</DialogTitle>
+              <DialogDescription className="sr-only">
+                Reproductor de video en pantalla completa. Arrastra hacia abajo o presiona cerrar para salir.
+              </DialogDescription>
+
               {/* Close button */}
               <DialogClose className="absolute top-4 right-4 z-50 rounded-full p-2 glass hover:bg-primary/20 transition-colors">
                 <X className="w-6 h-6 text-foreground" />
