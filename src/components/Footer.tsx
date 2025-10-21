@@ -38,30 +38,6 @@ const Footer = () => {
               Solware
             </a>
           </p>
-
-          {/* Links */}
-          <div className="flex items-center gap-6">
-            {[
-              { name: "Inicio", id: "hero" },
-              { name: "Contacto", id: "contact" },
-            ].map((link) => (
-              <button
-                key={link.name}
-                onClick={() => scrollToSection(link.id)}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 uppercase tracking-wider"
-              >
-                {link.name}
-              </button>
-            ))}
-            <a
-              href="https://www.instagram.com/ep.filmmaker"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 uppercase tracking-wider"
-            >
-              Instagram
-            </a>
-          </div>
         </div>
       </div>
     </motion.footer>
