@@ -58,7 +58,7 @@ const AboutSection = () => {
             className="mt-20 text-center"
           >
             <blockquote className="text-3xl md:text-5xl font-bold text-gradient italic">
-              "No filmo lo que veo. Filmo lo que siento."
+              "No busco planos, busco emociones."
             </blockquote>
           </motion.div>
         </div>
