@@ -1,8 +1,26 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FloatingSocial = () => {
+  const [showButtons, setShowButtons] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const heroHeight = window.innerHeight;
+      
+      // Mostrar botones cuando el scroll pase el 80% del Hero
+      setShowButtons(scrollPosition > heroHeight * 0.8);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check inicial
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleWhatsApp = () => {
     window.open(
       "https://wa.me/584122499554?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20hablar%20sobre%20una%20producci%C3%B3n.",
@@ -15,12 +33,15 @@ const FloatingSocial = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 1 }}
-      className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-40 flex flex-col gap-3 md:gap-4"
-    >
+    <AnimatePresence>
+      {showButtons && (
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 100 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-40 flex flex-col gap-3 md:gap-4"
+        >
       {/* WhatsApp */}
       <Button
         onClick={handleWhatsApp}
@@ -38,7 +59,9 @@ const FloatingSocial = () => {
       >
         <Instagram className="w-5 h-5 md:w-6 md:h-6 text-foreground hover:text-primary transition-colors" />
       </Button>
-    </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
