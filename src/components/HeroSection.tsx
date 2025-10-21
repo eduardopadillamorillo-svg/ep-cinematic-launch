@@ -18,26 +18,26 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="min-h-screen flex flex-col items-center justify-center text-center">
+        <div className="min-h-screen flex flex-col items-start justify-end pb-20 pl-6 md:pb-24 md:pl-12 lg:pl-16">
           {/* Main Quote - Staggered Animation */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="mb-8 md:mb-12 max-w-5xl mx-auto"
+            className="mb-8 md:mb-12"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight px-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight text-left">
               <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                 className="block text-primary glow-text shimmer-text"
               >
                 No busco planos,
               </motion.span>
               <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
                 className="block text-gradient mt-3 md:mt-4"
               >
@@ -46,10 +46,10 @@ const HeroSection = () => {
             </h1>
             
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-10 md:mb-16 tracking-wide font-light px-4"
+              className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 md:mb-10 tracking-wide font-light text-left"
             >
               Cada toma tiene una intención.
             </motion.p>
@@ -57,8 +57,8 @@ const HeroSection = () => {
 
           {/* CTA Button with Electric Effect */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 1.6, ease: "easeOut" }}
           >
             <Button

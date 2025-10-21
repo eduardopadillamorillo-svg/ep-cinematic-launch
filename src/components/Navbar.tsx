@@ -30,11 +30,15 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <motion.button
             onClick={() => scrollToSection("hero")}
-            className="text-2xl font-bold tracking-wider text-primary"
+            className="flex items-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            EP
+            <img 
+              src="https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Imagenes%20PUBLICAS/logo/e.p%20filmmaker%20logo%20blanco%20png%20(1).png" 
+              alt="EP Filmmaker" 
+              className="h-8 md:h-10 w-auto"
+            />
           </motion.button>
 
           <div className="hidden md:flex items-center gap-8">
