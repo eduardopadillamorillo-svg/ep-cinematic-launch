@@ -31,8 +31,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }} />
 
       {/* CONTENIDO */}
-      <div className="relative z-10 container mx-auto px-4">
-        <div className="min-h-screen flex flex-col items-start justify-end pb-20 pl-6">
+      <div className="relative z-10 container mx-auto px-6 lg:px-4">
+        <div className="min-h-screen flex flex-col items-start justify-end pb-20 pl-0 lg:pl-6">
           
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -77,7 +77,7 @@ const HeroSection = () => {
             <Button
               onClick={handleWhatsApp}
               size="lg"
-              className="px-12 py-6 text-lg font-semibold bg-card/80 text-primary border-2 border-primary/40 hover:border-primary/50 hover:bg-card backdrop-blur-sm transition-all duration-500 uppercase tracking-widest"
+              className="px-8 lg:px-12 py-6 text-base lg:text-lg font-semibold bg-card/80 text-primary border-2 border-primary/40 hover:border-primary/50 hover:bg-card backdrop-blur-sm transition-all duration-500 uppercase tracking-widest"
             >
               Hablemos por WhatsApp
             </Button>
