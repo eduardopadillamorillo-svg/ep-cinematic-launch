@@ -1,46 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useRef, useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const attemptPlay = async () => {
-      try {
-        await video.play();
-      } catch (error) {
-        console.warn("Autoplay blocked, user interaction needed");
-      }
-    };
-
-    const handleLoadedData = () => {
-      setVideoLoaded(true);
-      attemptPlay();
-    };
-
-    const handleError = () => {
-      setVideoError(true);
-    };
-
-    video.addEventListener('loadeddata', handleLoadedData);
-    video.addEventListener('error', handleError);
-
-    if (video.readyState >= 2) {
-      setVideoLoaded(true);
-      attemptPlay();
-    }
-
-    return () => {
-      video.removeEventListener('loadeddata', handleLoadedData);
-      video.removeEventListener('error', handleError);
-    };
-  }, []);
 
   const handleWhatsApp = () => {
     window.open(
@@ -51,17 +12,17 @@ const HeroSection = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+      {/* Gradient de Fondo SIEMPRE VISIBLE (fallback) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0" />
+      
+      {/* Video Background - SIEMPRE VISIBLE */}
       <video
-        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
         preload="auto"
-        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
-          videoLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
+        className="absolute inset-0 w-full h-full object-cover z-[1] opacity-100"
       >
         <source 
           src="https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/Hero/19%20WEB.mp4" 
@@ -69,27 +30,17 @@ const HeroSection = () => {
         />
       </video>
 
-      {/* Fallback mientras carga el video */}
-      {!videoLoaded && !videoError && (
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0 animate-pulse" />
-      )}
-
-      {/* Si hay error, mostrar gradient permanente */}
-      {videoError && (
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0" />
-      )}
-
       {/* Dark Overlay for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-[2]" />
       
       {/* Vignette Effect */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 z-[2]" />
 
       {/* Film Grain */}
-      <div className="absolute inset-0 film-grain z-[2]" />
+      <div className="absolute inset-0 film-grain z-[3]" />
       
       {/* Subtle Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[120px] z-[2]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[120px] z-[3]" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="min-h-screen flex flex-col items-start justify-end pb-16 pl-4 sm:pb-20 sm:pl-6 md:pb-24 md:pl-12 lg:pl-16">
