@@ -11,19 +11,16 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Gradient de Fondo SIEMPRE VISIBLE (fallback) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0" />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       
-      {/* Video Background - SIEMPRE VISIBLE */}
+      {/* Video Background - SIN INTERFERENCIAS */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        preload="auto"
-        crossOrigin="anonymous"
-        className="absolute inset-0 w-full h-full object-cover z-[1] opacity-100"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
       >
         <source 
           src="https://lxyueinuklyestlpuhoo.supabase.co/storage/v1/object/public/Video%20PUBLICOS/Hero/19%20WEB.mp4" 
@@ -31,33 +28,25 @@ const HeroSection = () => {
         />
       </video>
 
-      {/* Dark Overlay for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-[2]" />
-      
-      {/* Vignette Effect */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 z-[2]" />
+      {/* Overlay oscuro simple */}
+      <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }} />
 
-      {/* Film Grain */}
-      <div className="absolute inset-0 film-grain z-[3]" />
-      
-      {/* Subtle Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[120px] z-[3]" />
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="min-h-screen flex flex-col items-start justify-end pb-16 pl-4 sm:pb-20 sm:pl-6 md:pb-24 md:pl-12 lg:pl-16">
-          {/* Main Quote - Staggered Animation */}
+      {/* CONTENIDO */}
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="min-h-screen flex flex-col items-start justify-end pb-20 pl-6">
+          
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="mb-6 md:mb-8 lg:mb-12"
+            className="mb-12"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight text-left">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight text-left">
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                className="block text-primary glow-text shimmer-text"
+                className="block text-primary"
               >
                 No busco planos,
               </motion.span>
@@ -65,7 +54,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-                className="block text-gradient mt-2 sm:mt-3 md:mt-4"
+                className="block text-gradient mt-4"
               >
                 busco emociones.
               </motion.span>
@@ -75,43 +64,26 @@ const HeroSection = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 tracking-wide font-light text-left"
+              className="text-xl lg:text-2xl text-muted-foreground mb-10 tracking-wide font-light text-left"
             >
               Cada toma tiene una intención.
             </motion.p>
           </motion.div>
 
-          {/* CTA Button with Electric Effect */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 1.6, ease: "easeOut" }}
-            className="w-full sm:w-auto"
           >
             <Button
               onClick={handleWhatsApp}
               size="lg"
-              className="relative w-full sm:w-auto px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-5 lg:px-12 lg:py-6 text-sm sm:text-base md:text-lg font-semibold bg-card/80 text-primary border-2 border-primary/40 hover:border-primary/50 hover:bg-card backdrop-blur-sm transition-all duration-500 uppercase tracking-wide sm:tracking-widest"
+              className="px-12 py-6 text-lg font-semibold bg-card/80 text-primary border-2 border-primary/40 hover:border-primary/50 hover:bg-card backdrop-blur-sm transition-all duration-500 uppercase tracking-widest"
             >
               Hablemos por WhatsApp
             </Button>
           </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 2.2 }}
-            className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center pt-2"
-            >
-              <div className="w-1 h-3 bg-primary rounded-full" />
-            </motion.div>
-          </motion.div>
         </div>
       </div>
     </section>
