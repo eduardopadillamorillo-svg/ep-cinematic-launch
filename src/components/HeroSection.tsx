@@ -1,9 +1,46 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useVideoPlayer } from "@/hooks/useVideoPlayer";
+import { useRef, useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const { videoRef, isLoaded } = useVideoPlayer(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const attemptPlay = async () => {
+      try {
+        await video.play();
+      } catch (error) {
+        console.warn("Autoplay blocked, user interaction needed");
+      }
+    };
+
+    const handleLoadedData = () => {
+      setVideoLoaded(true);
+      attemptPlay();
+    };
+
+    const handleError = () => {
+      setVideoError(true);
+    };
+
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('error', handleError);
+
+    if (video.readyState >= 2) {
+      setVideoLoaded(true);
+      attemptPlay();
+    }
+
+    return () => {
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('error', handleError);
+    };
+  }, []);
 
   const handleWhatsApp = () => {
     window.open(
@@ -23,7 +60,7 @@ const HeroSection = () => {
         playsInline
         preload="auto"
         className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
+          videoLoaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <source 
@@ -33,7 +70,12 @@ const HeroSection = () => {
       </video>
 
       {/* Fallback mientras carga el video */}
-      {!isLoaded && (
+      {!videoLoaded && !videoError && (
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0 animate-pulse" />
+      )}
+
+      {/* Si hay error, mostrar gradient permanente */}
+      {videoError && (
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0" />
       )}
 
